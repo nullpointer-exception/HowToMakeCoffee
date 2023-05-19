@@ -11,6 +11,7 @@
 #pragma endregion
 
 #pragma region project
+#include "Club.h"
 #include "Gustaff.generated.h"
 #pragma endregion
 #pragma endregion
