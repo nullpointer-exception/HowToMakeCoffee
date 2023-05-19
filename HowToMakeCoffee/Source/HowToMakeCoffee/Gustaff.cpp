@@ -18,8 +18,12 @@ AGustaff::AGustaff()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
+	GetCapsuleComponent()->InitCapsuleSize(55.f, 96.0f);
+
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
-	Camera->SetupAttachment(RootComponent);
+	Camera->SetupAttachment(GetCapsuleComponent());
+	Camera->SetRelativeLocation(FVector(-10.f, 0.f, 60.f));
+	Camera->bUsePawnControlRotation = true;
 }
 
 void AGustaff::BeginPlay()

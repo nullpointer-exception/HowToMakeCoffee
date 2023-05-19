@@ -15,6 +15,13 @@
 #pragma endregion
 #pragma endregion
 
+class UInputComponent;
+class USkeletalMeshComponent;
+class USceneComponent;
+class UCameraComponent;
+class UAnimMontage;
+class USoundBase;
+
 UCLASS()
 class HOWTOMAKECOFFEE_API AGustaff : public ACharacter
 {
@@ -38,6 +45,8 @@ protected:
 private:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
 		TObjectPtr<class UCameraComponent> Camera;
+public:
+	TObjectPtr<class UCameraComponent> GetFirstPersonCameraComponent() const { return Camera; }
 #pragma endregion
 
 #pragma region input
