@@ -5,7 +5,7 @@
 #pragma region includes
 #pragma region UE5
 #include "CoreMinimal.h"
-#include "GameFramework/Pawn.h"
+#include "GameFramework/Character.h"
 #include "Components/InputComponent.h"
 #include "InputActionValue.h"
 #pragma endregion
@@ -16,7 +16,7 @@
 #pragma endregion
 
 UCLASS()
-class HOWTOMAKECOFFEE_API AGustaff : public APawn
+class HOWTOMAKECOFFEE_API AGustaff : public ACharacter
 {
 	GENERATED_BODY()
 
@@ -36,13 +36,7 @@ protected:
 #pragma region variables
 #pragma region components
 private:
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
-		TObjectPtr<class UCapsuleComponent> Capsule;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Mesh", meta = (AllowPrivateAccess = "true"))
-		TObjectPtr<class USkeletalMeshComponent> Mesh;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
 		TObjectPtr<class UCameraComponent> Camera;
 #pragma endregion
 

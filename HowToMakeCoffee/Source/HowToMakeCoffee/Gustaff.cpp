@@ -18,16 +18,8 @@ AGustaff::AGustaff()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
-	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
-
-	Capsule = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Capsule"));
-	Capsule->SetupAttachment(RootComponent);
-
-	Mesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Mesh"));
-	Mesh->SetupAttachment(Capsule);
-
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
-	Camera->SetupAttachment(Capsule);
+	Camera->SetupAttachment(RootComponent);
 }
 
 void AGustaff::BeginPlay()
