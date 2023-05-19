@@ -7,11 +7,13 @@
 #include "HowToMakeCoffeeGameModeBase.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
 class HOWTOMAKECOFFEE_API AHowToMakeCoffeeGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-	
+
+public:
+	AHowToMakeCoffeeGameModeBase();
 };
