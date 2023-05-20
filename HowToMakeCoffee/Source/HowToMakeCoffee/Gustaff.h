@@ -40,13 +40,18 @@ private:
 		TObjectPtr<class USceneComponent> Root;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
-		TObjectPtr<class UStaticMeshComponent> Mesh;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
 		TObjectPtr< class USpringArmComponent> SpringArm;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
+		TObjectPtr<class UStaticMeshComponent> Mesh;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
 		TObjectPtr<class UCameraComponent> Camera;
+
+#pragma region settings
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components|Settings", meta = (AllowPrivateAccess = "true", ClampMin = 0.5, ClampMax = 2))
+		float ClubScale{ 1 };
+#pragma endregion
 #pragma endregion
 
 #pragma region input
