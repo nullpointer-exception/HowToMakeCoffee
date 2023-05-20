@@ -5,26 +5,18 @@
 #pragma region includes
 #pragma region UE5
 #include "CoreMinimal.h"
-#include "GameFramework/Character.h"
+#include "GameFramework/Pawn.h"
 #include "Components/InputComponent.h"
 #include "InputActionValue.h"
 #pragma endregion
 
 #pragma region project
-#include "Club.h"
 #include "Gustaff.generated.h"
 #pragma endregion
 #pragma endregion
 
-class UInputComponent;
-class USkeletalMeshComponent;
-class USceneComponent;
-class UCameraComponent;
-class UAnimMontage;
-class USoundBase;
-
 UCLASS()
-class HOWTOMAKECOFFEE_API AGustaff : public ACharacter
+class HOWTOMAKECOFFEE_API AGustaff : public APawn
 {
 	GENERATED_BODY()
 
@@ -45,9 +37,16 @@ protected:
 #pragma region components
 private:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
+		TObjectPtr<class USceneComponent> Root;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
+		TObjectPtr<class UStaticMeshComponent> Mesh;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
+		TObjectPtr< class USpringArmComponent> SpringArm;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
 		TObjectPtr<class UCameraComponent> Camera;
-public:
-	TObjectPtr<class UCameraComponent> GetFirstPersonCameraComponent() const { return Camera; }
 #pragma endregion
 
 #pragma region input

@@ -6,9 +6,10 @@
 #pragma endregion
 
 #pragma region UE5
-#include "Animation/AnimInstance.h"
+#include "Components/SceneComponent.h"
+#include "Components/StaticMeshComponent.h"
+#include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
-#include "Components/CapsuleComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #pragma endregion
@@ -18,11 +19,17 @@ AGustaff::AGustaff()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
-	GetCapsuleComponent()->InitCapsuleSize(55.f, 96.0f);
+	Root = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
+	SetRootComponent(Root);
+
+	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
+	Mesh->SetupAttachment(Root);
+
+	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
+	SpringArm->SetupAttachment(Mesh);
 
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
-	Camera->SetupAttachment(GetCapsuleComponent());
-	Camera->SetRelativeLocation(FVector(-10.f, 0.f, 60.f));
+	Camera->SetupAttachment(SpringArm);
 	Camera->bUsePawnControlRotation = true;
 }
 
